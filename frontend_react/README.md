@@ -4,7 +4,40 @@ This project provides a minimal React template with a clean, modern UI and minim
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
+- **Reusable Button Component**: See [`src/components/Button.jsx`](src/components/Button.jsx) for a fully accessible, theme-compliant button with variants, sizes, and states.
+
+### Button Usage Example
+
+```jsx
+import { Button } from "./components";
+
+<Button
+  variant="primary"      // 'primary' | 'secondary' | 'success' | 'danger' | 'ghost'
+  size="md"              // 'sm' | 'md' | 'lg'
+  disabled={false}
+  loading={false}
+  fullWidth={false}
+  type="button"
+  onClick={() => alert("Clicked!")}
+  aria-label="My Action"
+>
+  Click Me
+</Button>
+```
+
+| Prop        | Type                              | Default    | Description                                                        |
+|-------------|-----------------------------------|------------|--------------------------------------------------------------------|
+| variant     | string ('primary', 'secondary', 'success', 'danger', 'ghost') | 'primary' | Visual style based on theme guide                                  |
+| size        | string ('sm', 'md', 'lg')         | 'md'       | Button size                                                        |
+| disabled    | boolean                           | false      | Disables button interaction                                        |
+| loading     | boolean                           | false      | Shows spinner, disables interactions                               |
+| fullWidth   | boolean                           | false      | Makes the button span 100% width                                   |
+| type        | string ('button', 'submit', 'reset') | 'button' | Native button type                                                 |
+| className   | string                            | ''         | Additional classes for custom styling                              |
+| aria-label  | string                            | -          | Accessible label for screen readers                                |
+| onClick     | function                          | -          | onClick handler                                                    |
+| children    | node                              | -          | Button label/content                                               |
+
 - **Modern UI**: Clean, responsive design with KAVIA brand styling
 - **Fast**: Minimal dependencies for quick loading times
 - **Simple**: Easy to understand and modify
