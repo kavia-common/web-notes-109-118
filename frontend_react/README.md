@@ -23,6 +23,14 @@ import { Button } from "./components";
 >
   Click Me
 </Button>
+
+{/* Example with randomtext prop (demo only) */}
+<Button
+  variant="secondary"
+  randomtext="Subtle demo text"
+>
+  With Demo Text
+</Button>
 ```
 
 | Prop        | Type                              | Default    | Description                                                        |
@@ -35,6 +43,7 @@ import { Button } from "./components";
 | type        | string ('button', 'submit', 'reset') | 'button' | Native button type                                                 |
 | className   | string                            | ''         | Additional classes for custom styling                              |
 | aria-label  | string                            | -          | Accessible label for screen readers                                |
+| randomtext  | string                            | -          | _(Demo only)_ If provided, displays subtle text in the button      |
 | onClick     | function                          | -          | onClick handler                                                    |
 | children    | node                              | -          | Button label/content                                               |
 

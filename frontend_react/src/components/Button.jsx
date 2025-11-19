@@ -17,6 +17,7 @@ import PropTypes from "prop-types";
  * @param {string} className - Extra className.
  * @param {React.ReactNode} children - Button content.
  * @param {string} ariaLabel - aria-label prop pass-through.
+ * @param {string} randomtext - Optional subtle text to display below the label (demo only).
  * ...props - Any other native button attributes (e.g., aria-*).
  */
 export const Button = React.forwardRef(
@@ -31,6 +32,7 @@ export const Button = React.forwardRef(
       type = "button",
       className = "",
       children,
+      randomtext, // <- New demo-only prop
       "aria-label": ariaLabel,
       ...props
     },
@@ -80,7 +82,27 @@ export const Button = React.forwardRef(
             aria-label="Loading"
           />
         )}
-        {children}
+        <span style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+          {children}
+          {randomtext && (
+            <span
+              style={{
+                fontSize: "0.75em",
+                color: "var(--text-secondary, #888)",
+                opacity: 0.7,
+                marginTop: 2,
+                lineHeight: 1.1,
+                wordBreak: "break-word",
+                pointerEvents: "none",
+                userSelect: "none",
+              }}
+              aria-hidden="true"
+              data-demo-randomtext
+            >
+              {randomtext}
+            </span>
+          )}
+        </span>
       </button>
     );
   }
@@ -103,4 +125,5 @@ Button.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   "aria-label": PropTypes.string,
+  randomtext: PropTypes.string, // Optional demo prop
 };
